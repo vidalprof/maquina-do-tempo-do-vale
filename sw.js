@@ -1,8 +1,8 @@
 /* Service worker — rede primeiro no HTML; cache primeiro em imagem/áudio. */
 var PREFIXO="maquina-tempo-vale-";
-var CACHE=PREFIXO+"v2";
+var CACHE=PREFIXO+"v3";
 
-var ATIVOS=["./","./index.html","./manifest.json","./img/hv_base.png","./img/hv_fala.png","./img/hv_pisca.png","./img/hv_cr1.png","./img/hv_cr2.png","./img/hv_cr3.png","./img/hv_cr4.png","./img/hv_cr5.png","./img/hv_cr6.png","./img/hv_med.png","./img/hv_fundo.jpg","./img/hv_mata.jpg","./img/hv_aldeia.jpg","./img/hv_barco.jpg","./img/hv_colonia.jpg","./img/hv_roca.jpg","./img/hv_cidade.jpg","./audio/hv_abertura.mp3"];
+var ATIVOS=["./","./index.html","./manifest.json","./img/hv_base.png","./img/hv_fala.png","./img/hv_pisca.png","./img/hv_cr1.png","./img/hv_cr2.png","./img/hv_cr3.png","./img/hv_cr4.png","./img/hv_cr5.png","./img/hv_cr6.png","./img/hv_med.png","./img/hv_fundo.jpg","./img/hv_mata.jpg","./img/hv_aldeia.jpg","./img/hv_barco.jpg","./img/hv_colonia.jpg","./img/hv_roca.jpg","./img/hv_cidade.jpg","./img/hv_beira.jpg","./img/hv_morro_a.jpg","./img/hv_morro_b.jpg","./img/hv_morro_c.jpg","./img/hv_ac1.jpg","./img/hv_ac2.jpg","./img/hv_ac3.jpg","./img/hv_ac4.jpg","./img/hv_ac5.jpg","./img/hv_ac6.jpg","./img/hv_ac7.jpg","./audio/hv_abertura.mp3"];
 self.addEventListener("install",function(e){self.skipWaiting();e.waitUntil(caches.open(CACHE).then(function(c){return c.addAll(ATIVOS).catch(function(){});}));});
 self.addEventListener("activate",function(e){e.waitUntil(caches.keys().then(function(ks){return Promise.all(ks.map(function(k){if(k!==CACHE&&k.indexOf(PREFIXO)===0)return caches.delete(k);}));}));self.clients.claim();});
 function guardar(req,resp){try{if(resp&&resp.status===200&&resp.type==="basic"){var cp=resp.clone();caches.open(CACHE).then(function(c){c.put(req,cp);});}}catch(x){}return resp;}
