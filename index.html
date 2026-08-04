@@ -566,7 +566,9 @@ h1{font-size:31px;font-weight:700;color:#fff;text-shadow:0 2px 0 var(--tinta-d),
    A carta e FLUIDA (48% da largura) em vez de ter px fixo: no celular pequeno
    ela ainda entra duas por linha, e no PC ela cresce ate 210px. No PC largo a
    caixa abre para TRES colunas, e ai o tabuleiro inteiro cabe sem rolar.     */
-@media (min-width:760px){ .mcartas{max-width:680px} }
+@media (min-width:760px){ .mcartas{max-width:680px}
+  .fichas{max-width:640px} .ficha{max-width:200px} .ficha .fimg{height:128px}
+  .trilhotempo .tvaga{min-width:124px;height:96px} .trilhotempo .tvimg{width:120px;height:88px} }
 
 /* ================= FASES NOVAS (ago/2026) ================= */
 /* MARCA-TEXTO: paragrafo de verdade, palavra a palavra, para PINTAR */
@@ -679,15 +681,15 @@ h1{font-size:31px;font-weight:700;color:#fff;text-shadow:0 2px 0 var(--tinta-d),
 /* --- linha do tempo --- */
 .trilhotempo{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;
   flex-wrap:wrap;gap:6px;-webkit-box-pack:center;justify-content:center;margin-top:12px;width:100%}
-.trilhotempo .tvaga{min-width:74px;height:60px;padding:0}
-.trilhotempo .tvimg{width:70px;height:52px;object-fit:cover;border-radius:8px}
+.trilhotempo .tvaga{min-width:104px;height:82px;padding:0}
+.trilhotempo .tvimg{width:100px;height:74px;object-fit:cover;border-radius:8px}
 .fichas{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;
-  gap:8px;-webkit-box-pack:center;justify-content:center;margin-top:14px;max-width:430px}
-.ficha{width:100px;background:rgba(255,253,246,.96);border:2px solid var(--linha);
+  gap:8px;-webkit-box-pack:center;justify-content:center;margin-top:14px;max-width:430px;width:100%}
+.ficha{width:47%;max-width:196px;background:rgba(255,253,246,.96);border:2px solid var(--linha);
   border-bottom-width:5px;border-radius:14px;padding:5px;cursor:pointer;text-align:center;
   -webkit-box-shadow:0 5px 14px rgba(30,25,10,.3);box-shadow:0 5px 14px rgba(30,25,10,.3)}
-.ficha .fimg{width:88px;height:60px;object-fit:cover;border-radius:9px;display:block;margin:0 auto}
-.ficha .flab{font-size:11.5px;font-weight:700;color:var(--texto);margin-top:3px;line-height:1.15}
+.ficha .fimg{width:100%;height:112px;object-fit:cover;border-radius:11px;display:block}
+.ficha .flab{font-size:13.5px;font-weight:700;color:var(--texto);margin-top:3px;line-height:1.15}
 .ficha.usada{opacity:.25}
 .ficha.no{border-color:var(--erro);background:#ffece9;-webkit-animation:shk .4s;animation:shk .4s}
 .ficha:active{-webkit-transform:translateY(2px);transform:translateY(2px)}
@@ -1029,7 +1031,7 @@ function cenaEl(img,legenda){
 /* ---------- 1) ABERTURA ---------- */
 function hAbertura(){limpa();var t=el("div","tela");var c=el("div","centro");
   c.appendChild(jucaEl("pq"));
-  c.appendChild(el("div","balao","Eu sou o <b>Juca</b>. A minha fam&#237;lia mora nesta mata do <b>Vale do Itaja&#237;</b> h&#225; muito, muito tempo."));
+  c.appendChild(el("div","balao","Eu sou o <b>seu Juca</b>. Andei a vida inteira por este <b>Vale do Itaja&#237;</b> com a minha m&#225;quina fotogr&#225;fica, guardando o que eu via."));
   c.appendChild(cenaEl("hv_mata",""));
   var b=el("button","btn","Come&#231;ar a viagem");b.style.marginTop="14px";
   b.onclick=function(){arma();sTap();hP1prever();};
@@ -1716,7 +1718,7 @@ function hCaca(){
   for(i=0;i<N;i++)for(j=0;j<N;j++) if(!g[i][j]) g[i][j]=AL.charAt(Math.floor(Math.random()*AL.length));
   var c=el("div","centro");
   c.appendChild(el("div","selo","QUADRO DE LETRAS"));
-  c.appendChild(el("div","balao","Ache os <b>"+total+" adjetivos</b> escondidos."));
+  c.appendChild(el("div","balao","Ache as <b>"+total+" palavras</b> do Vale escondidas no quadro."));
   var grade=el("div","grade"),cels=[],sel=null,trava=false;
   /* onde cada palavra ficou — SO para o auditor jogador conseguir resolver o
      caca-palavras (clicando ao acaso ele nunca acha). Nao aparece para ninguem. */
@@ -2065,8 +2067,8 @@ function crachaEl(funcao){
 }
 function hFim(){limpa();var t=el("div","tela");setProg(t,100);var c=el("div","centro topo");
   var med=imgEl("hv_med","medal"); c.appendChild(med); segredoRelatorio(med);
-  c.appendChild(el("h1","","Legendista Mestre!"));
-  c.appendChild(el("div","sub",(perfil.nome?perfil.nome+", a":"A")+" edi&#231;&#227;o de fotos est&#225; fechada."));
+  c.appendChild(el("h1","","Historiador do Vale!"));
+  c.appendChild(el("div","sub",(perfil.nome?perfil.nome+", a":"A")+" viagem no tempo est&#225; completa."));
   c.appendChild(crachaEl("Historiador do Vale"));
   resumoAnimado(c);
   if(fracos().length){
@@ -2116,17 +2118,17 @@ function telaMestre(){
 function telaCapa(){limpa();var t=el("div","tela");var c=el("div","centro");
   c.appendChild(jucaEl("gg"));
   c.appendChild(el("h1","","A M&#225;quina do Tempo do Vale"));
-  c.appendChild(el("div","sub","Substantivo e adjetivo &#183; 4&#186; ano"));
+  c.appendChild(el("div","sub","Hist&#243;ria &#183; 4&#186; ano &#183; O Vale do Itaja&#237;"));
   var b=el("button","btn","Come&#231;ar");b.style.marginTop="10px";
   b.onclick=function(){arma();sTap();telaQuem();};
   c.appendChild(b);
   t.appendChild(c);app.appendChild(t);
   montaBarra(null,null);}
 function telaQuem(){limpa();var t=el("div","tela");var c=el("div","centro");
-  c.appendChild(el("div","balao","<b>Quem</b> vai legendar as fotos hoje?"));
+  c.appendChild(el("div","balao","<b>Quem</b> vai viajar no tempo hoje?"));
   var inp=el("input","campo");inp.type="text";inp.placeholder="Escreva o seu nome";inp.maxLength=18;inp.value=perfil.nome||"";
   c.appendChild(inp);
-  c.appendChild(el("div","hint","Escolha o seu crach&#225;:"));
+  c.appendChild(el("div","hint","Escolha o seu crach&#225; de explorador:"));
   var figs=el("div","figs"),lista=["hv_cr1","hv_cr2","hv_cr3","hv_cr4","hv_cr5","hv_cr6"],i;
   for(i=0;i<lista.length;i++){(function(n){
     var f=el("div","fig"+(perfil.fig===n?" sel":""));f.appendChild(imgEl(n));
@@ -2277,22 +2279,22 @@ function telaPainel(){
   h+="<div><b>Aluno(a):</b> "+(perfil.nome||"(sem nome)")+" &#183; <b>Tempo:</b> ~"+mins+" min &#183; <b>Dicas usadas:</b> "+MED.dicas+"</div>";
   h+="<div class='bloco'><b>Acertos:</b> "+acc+" de "+tot+" respostas.</div>";
   h+="<table><tr><th>O que foi trabalhado</th><th>Dom&#237;nio</th><th>Parecer</th></tr>";
-  var CONCN={reconhecer:"Reconhecer substantivo e adjetivo",grupo:"Montar o grupo nominal",
-             concordancia:"Concord&#226;ncia nominal (g&#234;nero e n&#250;mero)",
-             morfologia:"Formar adjetivo por sufixo",producao:"Escrever a legenda (produ&#231;&#227;o)"};
+  var CONCN={mudanca:"Identificar o que MUDOU no tempo",permanencia:"Identificar o que CONTINUA (perman&#234;ncia)",
+             tempo:"P&#244;r fatos em ordem no tempo",migracao:"Por que os povos vieram para o Vale",
+             natureza:"A&#231;&#227;o das pessoas sobre a natureza",producao:"Escrever a hist&#243;ria com as pr&#243;prias palavras"};
   var kk;
   var ndom=0,nconc=0;
   for(kk in DOM){ if(DOM.hasOwnProperty(kk)){ var pr=parecerDe(DOM[kk]); nconc++; if(DOM[kk]>=0.75) ndom++;
     h+="<tr><td>"+(CONCN[kk]||kk)+"</td><td>"+pct(DOM[kk])+"</td><td class='"+pr[1]+"'>"+pr[0]+"</td></tr>"; } }
   h+="</table>";
   h+="<div class='resumo'>Resumo da aula: dominou <b>"+ndom+"</b> de <b>"+nconc+"</b> objetivos. "+(ndom===nconc?"Pode seguir para o pr&#243;ximo conte&#250;do.":(ndom>=nconc/2?"Vale retomar os itens marcados em amarelo e vermelho.":"Recomendo repetir a atividade antes de avan&#231;ar."))+"</div>";
-  if(MED.legendas&&MED.legendas.length){
-    h+="<div class='bloco'><b>Legendas escritas pelo aluno:</b><ul>";
-    for(i=0;i<MED.legendas.length;i++) h+="<li>&#8220;"+MED.legendas[i]+"&#8221;</li>";
+  if(MED.cartas&&MED.cartas.length){
+    h+="<div class='bloco'><b>Cartas escritas pelo aluno:</b><ul>";
+    for(i=0;i<MED.cartas.length;i++) h+="<li>&#8220;"+MED.cartas[i]+"&#8221;</li>";
     h+="</ul></div>";
   }
-  h+="<div class='bloco'><b>Curr&#237;culo (Blumenau, 4&#186; ano):</b> <i>&#8220;Identificar em textos e usar na produ&#231;&#227;o textual a concord&#226;ncia entre artigo, substantivo e adjetivo (concord&#226;ncia no grupo nominal)&#8221;</i> &#8212; g&#234;nero do discurso: <b>not&#237;cia</b>.</div>";
-  h+="<div class='bloco'><b>Como ler:</b> a crian&#231;a n&#227;o fez prova. Ela trabalhou na mesa de fotos do jornal: separou palavras, montou o grupo nominal com pe&#231;as, ajustou g&#234;nero e n&#250;mero, fabricou adjetivos por sufixo, consertou a p&#225;gina e escreveu legendas.</div>";
+  h+="<div class='bloco'><b>Curr&#237;culo (Blumenau, 4&#186; ano &#8212; Hist&#243;ria):</b> unidade <i>&#8220;Transforma&#231;&#245;es e perman&#234;ncias nas trajet&#243;rias dos grupos humanos no Vale do Itaja&#237;&#8221;</i>: <i>&#8220;Reconhecer a hist&#243;ria como resultado da a&#231;&#227;o do ser humano no tempo e no espa&#231;o, com base na identifica&#231;&#227;o de mudan&#231;as e perman&#234;ncias ao longo do tempo&#8221;</i> (EF04HI01). Tamb&#233;m: <i>&#8220;relacionar os processos de ocupa&#231;&#227;o do campo a interven&#231;&#245;es na natureza, avaliando os resultados&#8221;</i> e a unidade das <b>migra&#231;&#245;es no Vale do Itaja&#237;</b>.</div>";
+  h+="<div class='bloco'><b>Como ler:</b> a crian&#231;a n&#227;o fez prova. Ela viajou no tempo do Vale: deslizou a linha do tempo e viu a mesma paisagem mudar, separou o que mudou do que continua, p&#244;s as cenas em ordem, ligou cada povo ao que ele deixou, descobriu por que as pessoas migram, testou o que acontece com a &#225;gua quando a mata do morro cai, e escreveu uma carta contando o que mudou e o que ficou.</div>";
   h+="<p class='noprint'><button onclick='window.print()'>Imprimir</button> <button onclick='location.href=location.pathname'>Voltar ao jogo</button></p>";
   d.innerHTML=h;document.body.appendChild(d);
 }
