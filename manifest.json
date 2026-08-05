@@ -1,9 +1,9 @@
 {
- "name": "A Legenda do Pingo",
- "short_name": "Legenda",
+ "name": "A Máquina do Tempo do Vale",
+ "short_name": "Máquina do Tempo",
  "start_url": "./",
  "display": "standalone",
  "background_color": "#e8dcc0",
- "theme_color": "#2f6bd8",
+ "theme_color": "#7a4a1e",
  "icons": []
 }
