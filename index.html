@@ -221,7 +221,7 @@ h1{font-size:31px;font-weight:700;color:#fff;text-shadow:0 2px 0 var(--tinta-d),
   border:3px solid #5a3a16}
 /* a arte PREENCHE a carta (cover): assim a beirada clara que sobra do recorte
    fica de fora do canto arredondado, e o couro vai de ponta a ponta          */
-.mcarta .fv img{width:100%;height:100%;-o-object-fit:cover;object-fit:cover}
+.mcarta .fv img{width:100%;height:100%;-o-object-fit:contain;object-fit:contain}
 /* o brilho que corre pelo verso: e ele que faz a mesa "chamar" a crianca */
 .mcarta .fv:after{content:"";position:absolute;top:-60%;left:-60%;width:50%;height:220%;
   background:-webkit-linear-gradient(top,rgba(255,255,255,0),rgba(255,255,255,.42),rgba(255,255,255,0));
@@ -297,7 +297,7 @@ h1{font-size:31px;font-weight:700;color:#fff;text-shadow:0 2px 0 var(--tinta-d),
 /* alto-falante discreto: le a resposta para quem ainda nao le */
 .zap{position:relative;-webkit-flex:none;flex:none;width:30px;height:30px;border-radius:50%;background:rgba(47,107,216,.09);border:0;cursor:pointer;padding:0;margin-left:8px;vertical-align:middle;display:inline-block;opacity:.55;-webkit-transition:opacity .2s;transition:opacity .2s}
 .balao.comzap{padding-right:56px}
-.zapb{position:absolute;right:9px;top:50%;margin-top:-19px;width:38px;height:38px;border-radius:50%;
+.zapb{position:absolute;right:9px;top:50%;margin-top:-20px;width:40px;height:40px;border-radius:50%;
   background:#ffd43b;border:3px solid #fffdf6;cursor:pointer;padding:0;
   -webkit-box-shadow:0 3px 9px rgba(60,45,15,.35);box-shadow:0 3px 9px rgba(60,45,15,.35)}
 .zapb i{position:absolute;left:11px;top:13px;width:5px;height:11px;background:#4a3a10;border-radius:1px}
@@ -754,13 +754,13 @@ h1{font-size:31px;font-weight:700;color:#fff;text-shadow:0 2px 0 var(--tinta-d),
 .trilhotempo{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;
   flex-wrap:wrap;gap:6px;-webkit-box-pack:center;justify-content:center;margin-top:12px;width:100%}
 .trilhotempo .tvaga{min-width:104px;height:82px;padding:0}
-.trilhotempo .tvimg{width:100px;height:74px;object-fit:cover;border-radius:8px}
+.trilhotempo .tvimg{width:100px;height:74px;object-fit:contain;border-radius:8px}
 .fichas{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap;
   gap:8px;-webkit-box-pack:center;justify-content:center;margin-top:14px;max-width:430px;width:100%}
 .ficha{width:47%;max-width:196px;background:rgba(255,253,246,.96);border:2px solid var(--linha);
   border-bottom-width:5px;border-radius:14px;padding:5px;cursor:pointer;text-align:center;
   -webkit-box-shadow:0 5px 14px rgba(30,25,10,.3);box-shadow:0 5px 14px rgba(30,25,10,.3)}
-.ficha .fimg{width:100%;height:112px;object-fit:cover;border-radius:11px;display:block}
+.ficha .fimg{width:100%;height:112px;object-fit:contain;border-radius:11px;display:block}
 .ficha .flab{font-size:13.5px;font-weight:700;color:var(--texto);margin-top:3px;line-height:1.15}
 .ficha.usada{opacity:.25}
 .ficha.no{border-color:var(--erro);background:#ffece9;-webkit-animation:shk .4s;animation:shk .4s}
@@ -888,7 +888,7 @@ h1{font-size:31px;font-weight:700;color:#fff;text-shadow:0 2px 0 var(--tinta-d),
 .quadro{width:47%;max-width:196px;cursor:pointer;background:#fffdf6;padding:6px 6px 3px;
   border:3px solid #8a6b3f;border-radius:3px;
   -webkit-box-shadow:0 8px 18px rgba(20,14,4,.5);box-shadow:0 8px 18px rgba(20,14,4,.5)}
-.quadro .qimg{width:100%;height:96px;object-fit:cover;display:block}
+.quadro .qimg{width:100%;height:96px;object-fit:contain;display:block}
 .quadro .qtit{font-size:11.5px;font-weight:700;color:#4a4230;margin-top:4px;text-align:center;line-height:1.2}
 .quadro:active{-webkit-transform:translateY(2px);transform:translateY(2px)}
 /* a foto aberta, em cima de tudo */
