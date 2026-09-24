@@ -1,0 +1,15 @@
+{
+ "ano": "4",
+ "componente": "História",
+ "rede": "Blumenau",
+ "documento": "_curriculo/blumenau.txt",
+ "_sobre_esta_declaracao": "Atividade de MOTOR (nao e caderno de folha viva), entao nao ha campo `folhas`. Quem le este arquivo e o painel, para dar ao professor o tema e o objetivo prontos para colar no planejamento. As citacoes foram transcritas do PDF da rede, que vem em tabela de duas colunas com a frase quebrada em varias linhas, e conferidas palavra a palavra contra o documento.",
+ "objetivos": [
+  {
+   "objetivo": "Entender que a história é feita pelas pessoas, no tempo",
+   "pratica": "Transformações e permanências nas trajetórias dos grupos humanos",
+   "objeto": "A ação das pessoas, grupos sociais e comunidades no tempo e no espaço",
+   "habilidade": "HABILIDADE: \"Reconhecer a história como resultado da ação do ser humano no tempo e no espaço, com base na identificação de mudanças e permanências ao longo do tempo.\""
+  }
+ ]
+}
